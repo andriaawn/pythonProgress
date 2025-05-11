@@ -161,3 +161,126 @@ print(newList)  # [2, 4, 6, 8, 10]
 thisItems = ["apple", "mango", "cherry"]
 [print(x) for x in thisItems]
 # apple mango cherry
+
+
+# list comprehension
+allfruits = ["apple", "banana", "cherry", "kiwi", "mango"]
+newFruits = []
+
+for x in allfruits:
+    if "a" in x:
+        newFruits.append(x)
+
+print(newFruits) # ['apple', 'banana', 'mango']
+
+# with list comprehension, you can do this in one line
+newFruits = [x for x in allfruits if "a" in x]
+
+print(newFruits) # ['apple', 'banana', 'mango']
+
+# the sintax 
+# newFruits = [expression for item in iterable if condition == True]
+# the conndition is like a filter that only accepts the items that evaluate to True
+
+# the condition is optional
+# if you do not want to filter the items, you can use an empty condition
+newFruits = [x for x in allfruits]
+
+# you can use range() to create an iterable
+newFruits = [x in newFruits for x in range(6)]
+print(newFruits) # [0, 1, 2, 3, 4, 5]
+newFruits = [x in newFruits for x in range(10) if x > 5]
+print(newFruits) # [6, 7, 8, 9]
+
+# set value using expression
+# you can set the values of a list using an expression
+newFruits = [x.upper() for x in allfruits]
+print(newFruits) # ['APPLE', 'BANANA', 'CHERRY', 'KIWI', 'MANGO']
+
+# set value using expression and condition
+newFruits = ['hello' for x in allfruits]
+
+theFruits = ['apple', 'banana', 'cherry', 'kiwi', 'mango']
+theFruits = [x if x != 'banana' else 'orange' for x in theFruits]
+print(theFruits)  # ['apple', 'orange', 'cherry', 'kiwi', 'mango']
+
+
+
+# sort list 
+# sort() method
+# sort() method sorts the list ascending by default, and you can also make a function to decide the sorting criteria(s)
+# akan mengurutkan list secara ascending yaitu dari yang terkecil ke yang terbesar
+
+sortList = ['banana', 'cherry', 'apple']
+sortList.sort()
+print(sortList)  # ['apple', 'banana', 'cherry']
+sortList.sort(reverse=True)
+print(sortList)  # ['cherry', 'banana', 'apple']
+
+theNumericList = [100, 50, 65, 82, 23]
+theNumericList.sort()
+print(theNumericList)  # [23, 50, 65, 82, 100]
+
+# if you want to sort descending, use the reverse parameter
+theNumericList.sort(reverse=True)
+
+print(theNumericList)  # [100, 82, 65, 50, 23]
+
+# customize sort function
+# you can customize the sort order by using a function
+def myFunc(e):
+    return abs(e - 50)
+
+theNumericList = [100, 50, 65, 82, 23]
+theNumericList.sort(key=myFunc)
+print(theNumericList)  # [50, 65, 82, 23, 100]
+
+# case insensitive sort
+# By default the sort() method is case sensitive, resulting in all capital letters being sorted before lower case letters
+
+Fruits = ['banana', 'Orange', 'Kiwi', 'cherry']
+Fruits.sort()
+print(Fruits)  # ['Kiwi', 'Orange', 'banana', 'cherry']
+
+# we can using .lower() method to perform a case-insensitive sort
+Fruits = ['banana', 'Orange', 'Kiwi', 'cherry']
+Fruits.sort(key=str.lower)
+print(Fruits)  # ['banana', 'cherry', 'Kiwi', 'Orange']
+
+# using reversed() method
+# reversed() method returns a reversed iterator object
+# reversed() method membalikkan urutan list dari yang terakhir ke yang pertama
+
+reversedList = ['banana', 'cherry', 'apple']
+reversedList.reverse()
+print(reversedList)  # ['apple', 'cherry', 'banana']
+
+
+## copy list
+# copy() method
+# list() method
+# slice operator
+
+copyList = ['apple', 'banana', 'cherry']
+myCopyList = copyList.copy()
+
+myCopyList = list(copyList)
+myCopyList = copyList[:]
+
+## join two lists
+# using + operator
+list1 = ['apple', 'banana', 'cherry']
+list2 = ['guava', 'kiwi']
+
+list3 = list1 + list2
+print(list3)  # ['apple', 'banana', 'cherry', 'guava', 'kiwi']
+
+for x in list2:
+    list1.append(x)
+print(list1)  # ['apple', 'banana', 'cherry', 'guava', 'kiwi']
+
+list1.extend(list2)
+print(list1)  # ['apple', 'banana', 'cherry', 'guava', 'kiwi', 'guava', 'kiwi']
+
+
+
